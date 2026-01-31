@@ -1,6 +1,8 @@
 ---
   #  Olá, eu sou o João! 🦆🦆🦆
   Sou estudante de Engenharia de Software na Universidade de Brasília (UnB)
+  
+  **Última atualização:** <!--DATE-->31/01/2026<!--DATE-->
   <br><br>
   ### O que estou estudando no momento:
   -    **Estruturas de Dados** [(aqui 🦆)](https://github.com/nbg-cordeiro/Study-Repository/tree/main/ED1)
