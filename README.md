@@ -1,4 +1,3 @@
----
   #  Olá, eu sou o João! 🦆🦆🦆
   Sou estudante de Engenharia de Software na Universidade de Brasília (UnB)
   
@@ -20,6 +19,5 @@
   ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
   <br>
 
-  **Hoje:** 31/01/2026
+  **Hoje:** <!--DATE-->31/01/2026<!--DATE-->
   
----
