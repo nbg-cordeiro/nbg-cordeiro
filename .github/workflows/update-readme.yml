@@ -36,8 +36,8 @@ jobs:
               with open(readme_path, 'r', encoding='utf-8') as f:
                   conteudo = f.read()
               
-              # Esta regex encontra o que está entre e substitui pela data nova
-              padrao = r'().*?()'
+              # Esta regex encontra o que está entre os marcadores e substitui pela data nova
+              padrao = r'(<!--DATE-->).*?(<!--DATE-->)'
               novo_conteudo = re.sub(padrao, f'\\1{data_atual}\\2', conteudo)
               
               with open(readme_path, 'w', encoding='utf-8') as f:
