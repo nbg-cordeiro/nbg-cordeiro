@@ -26,7 +26,7 @@ def update_readme_date():
     pattern = r'<!--DATE-->.*?<!--DATE-->'
     replacement = f'<!--DATE-->{current_date}<!--DATE-->'
     
-    new_content = re.sub(pattern, replacement, content)
+    new_content = re.sub(pattern, replacement, content, flags=re.DOTALL)
     
     # Escrever o conteúdo atualizado de volta ao arquivo
     with open(README_PATH, 'w', encoding='utf-8') as file:
