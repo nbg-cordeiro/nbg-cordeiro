@@ -2,7 +2,6 @@ name: Update README with Current Date
 
 on:
   schedule:
-    # 03:00 UTC = 00:00 Brasília
     - cron: '0 3 * * *'
   workflow_dispatch:
 
@@ -26,37 +25,23 @@ jobs:
       - name: Update README with current date
         run: |
           python -c "
+          import re
           from datetime import datetime
           import os
 
           data_atual = datetime.now().strftime('%d/%m/%Y')
           readme_path = 'README.md'
-          prefixo = 'Hoje:'
-          nova_linha = f'{prefixo} {data_atual}\n'
           
           if os.path.exists(readme_path):
               with open(readme_path, 'r', encoding='utf-8') as f:
-                  linhas = f.readlines()
+                  conteudo = f.read()
               
-              encontrou = False
-              novas_linhas = []
-              for linha in linhas:
-                  # Procura a linha que começa com 'Hoje:'
-                  if linha.strip().startswith(prefixo):
-                      novas_linhas.append(nova_linha)
-                      encontrou = True
-                  else:
-                      novas_linhas.append(linha)
-              
-              # Se não existir a linha 'Hoje:', insere na penúltima posição
-              if not encontrou:
-                  if len(novas_linhas) >= 2:
-                      novas_linhas.insert(-1, nova_linha)
-                  else:
-                      novas_linhas.append(nova_linha)
+              # Esta regex encontra o que está entre e substitui pela data nova
+              padrao = r'().*?()'
+              novo_conteudo = re.sub(padrao, f'\\1{data_atual}\\2', conteudo)
               
               with open(readme_path, 'w', encoding='utf-8') as f:
-                  f.writelines(novas_linhas)
+                  f.write(novo_conteudo)
           "
       
       - name: Commit and push if changed
