@@ -19,5 +19,5 @@
   ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
   <br>
 
-  **Hoje:** <!--DATE-->31/01/2026<!--DATE-->
+  **Hoje:** 01/02/2026
   
