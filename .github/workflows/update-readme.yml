@@ -1,57 +1,57 @@
-name: Update README with Current Date
+# name: Update README with Current Date
 
-on:
-  schedule:
-    - cron: '0 3 * * *'
-  workflow_dispatch:
+# on:
+#   schedule:
+#     - cron: '0 3 * * *'
+#   workflow_dispatch:
 
-jobs:
-  update-readme:
-    runs-on: ubuntu-latest
-    env:
-      TZ: 'America/Sao_Paulo'
-    permissions:
-      contents: write
+# jobs:
+#   update-readme:
+#     runs-on: ubuntu-latest
+#     env:
+#       TZ: 'America/Sao_Paulo'
+#     permissions:
+#       contents: write
     
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+#     steps:
+#       - name: Checkout repository
+#         uses: actions/checkout@v4
       
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.x'
+#       - name: Set up Python
+#         uses: actions/setup-python@v5
+#         with:
+#           python-version: '3.x'
       
-      - name: Update README with current date
-        run: |
-          python -c "
-          import re
-          from datetime import datetime
-          import os
+#       - name: Update README with current date
+#         run: |
+#           python -c "
+#           import re
+#           from datetime import datetime
+#           import os
 
-          data_atual = datetime.now().strftime('%d/%m/%Y')
-          readme_path = 'README.md'
+#           data_atual = datetime.now().strftime('%d/%m/%Y')
+#           readme_path = 'README.md'
           
-          if os.path.exists(readme_path):
-              with open(readme_path, 'r', encoding='utf-8') as f:
-                  conteudo = f.read()
+#           if os.path.exists(readme_path):
+#               with open(readme_path, 'r', encoding='utf-8') as f:
+#                   conteudo = f.read()
               
-              # Esta regex encontra o que está entre os marcadores e substitui pela data nova
-              padrao = r'(<!--DATE-->).*?(<!--DATE-->)'
-              novo_conteudo = re.sub(padrao, f'\1{data_atual}\2', conteudo)
+#               # Esta regex encontra o que está entre os marcadores e substitui pela data nova
+#               padrao = r'(<!--DATE-->).*?(<!--DATE-->)'
+#               novo_conteudo = re.sub(padrao, f'\1{data_atual}\2', conteudo)
               
-              with open(readme_path, 'w', encoding='utf-8') as f:
-                  f.write(novo_conteudo)
-          "
+#               with open(readme_path, 'w', encoding='utf-8') as f:
+#                   f.write(novo_conteudo)
+#           "
       
-      - name: Commit and push if changed
-        run: |
-          git config --global user.name 'github-actions[bot]'
-          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git add README.md
-          if git diff --staged --quiet; then
-            echo "Nenhuma mudança na data."
-          else
-            git commit -m "🗓️ Atualizar data: $(date +'%d/%m/%Y')"
-            git push
-          fi
+#       - name: Commit and push if changed
+#         run: |
+#           git config --global user.name 'github-actions[bot]'
+#           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+#           git add README.md
+#           if git diff --staged --quiet; then
+#             echo "Nenhuma mudança na data."
+#           else
+#             git commit -m "🗓️ Atualizar data: $(date +'%d/%m/%Y')"
+#             git push
+#           fi
