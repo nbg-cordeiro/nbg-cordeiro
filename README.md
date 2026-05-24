@@ -1,7 +1,9 @@
 # Olá, eu sou o João! 🦆🦆🦆
 
-  Sou estudante de Engenharia de Software na Universidade de Brasília (UnB) e possuo muito interesse em programação competitiva!
+  Sou estudante de Engenharia de Software na Universidade de Brasília (UnB),
+
   
+  possuo interesse em programação competitiva e desenvolvimento back-end!
   <br>
   
   ### O que estou estudando no momento:
